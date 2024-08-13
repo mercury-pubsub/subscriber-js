@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"importHelpers": true,
+		"target": "ES2022",
+		"lib": ["ESNext", "DOM"],
+		"allowJs": true,
+		"checkJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"moduleResolution": "Bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"types": ["node", "@total-typescript/ts-reset", "eventsource"]
+	},
+	"include": ["src/**/*.ts", "./*.config.ts", "./*.config.mjs", "./*.config.js"],
+	"exclude": ["node_modules", "dist"]
+}

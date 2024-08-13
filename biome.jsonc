@@ -1,0 +1,48 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"all": true,
+			"nursery": {
+				"all": true,
+				"noExportedImports": "off", // conflicts with lint/performance/noBarrelFile
+				"noUndeclaredDependencies": "off", // doesn't work with absolute imports
+				"useDefaultSwitchClause": "off", // checked by typescript
+				"useImportExtensions": "off",
+				"useImportRestrictions": "off"
+			}
+		}
+	},
+	"formatter": {
+		"enabled": true,
+		"lineWidth": 100
+	},
+	"organizeImports": { "enabled": true },
+	"overrides": [
+		{
+			// VSCode JSON files are actually JSONC
+			"include": [".vscode/*.json"],
+			"json": {
+				"parser": { "allowComments": true }
+			}
+		},
+		{
+			"include": [
+				// most config files use default exports
+				"*.config.ts",
+				"*.config.mjs"
+			],
+			"linter": {
+				"rules": {
+					"style": { "noDefaultExport": "off" }
+				}
+			}
+		}
+	]
+}

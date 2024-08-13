@@ -1,0 +1,49 @@
+{
+	"name": "@mercury-pubsub/subscriber",
+	"version": "2.0.0",
+	"description": "",
+	"keywords": ["publish", "subscribe", "real time", "serverless"],
+	"author": "Tanguy Michardière",
+	"license": "MIT",
+	"main": "./index.js",
+	"types": "./index.d.ts",
+	"exports": {
+		".": {
+			"import": {
+				"default": "./index.mjs",
+				"types": "./index.d.mts"
+			},
+			"require": {
+				"default": "./index.js",
+				"types": "./index.d.ts"
+			}
+		}
+	},
+	"scripts": {
+		"update-dependencies": "sh scripts/update-dependencies.sh",
+		"format": "biome format --write .",
+		"lint": "biome ci --error-on-warnings .",
+		"check-types": "tsc",
+		"check-dead-code": "knip",
+		"quality": "pnpm run lint && pnpm run check-types && pnpm run check-dead-code && pnpm run build",
+		"build": "tsup"
+	},
+	"dependencies": {
+		"eventsource": "2.0.2",
+		"tslib": "2.6.3"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@mercury-pubsub/types": "2.0.1",
+		"@swc/core": "1.7.10",
+		"@t3-oss/env-core": "0.11.0",
+		"@total-typescript/ts-reset": "0.5.1",
+		"@types/eventsource": "1.1.15",
+		"@types/node": "18.19.44",
+		"knip": "5.27.2",
+		"npm-check-updates": "17.0.6",
+		"tsup": "8.2.4",
+		"typescript": "5.5.4",
+		"zod": "3.23.8"
+	}
+}
