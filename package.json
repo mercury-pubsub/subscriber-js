@@ -1,6 +1,6 @@
 {
 	"name": "@mercury-pubsub/subscriber",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "",
 	"keywords": ["publish", "subscribe", "real time", "serverless"],
 	"author": "Tanguy Michardière",
@@ -26,7 +26,7 @@
 		"check-types": "tsc",
 		"check-dead-code": "knip",
 		"quality": "pnpm run lint && pnpm run check-types && pnpm run check-dead-code && pnpm run build",
-		"build": "tsup"
+		"build": "tsup && cp package.json dist"
 	},
 	"dependencies": {
 		"eventsource": "2.0.2",

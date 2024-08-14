@@ -1,0 +1,42 @@
+{
+	"[javascript][typescript][javascriptreact][typescriptreact][json][jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome",
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2
+	},
+	"[markdown]": {
+		"editor.quickSuggestions": {
+			"comments": "off",
+			"other": "off",
+			"strings": "off"
+		},
+		"editor.wordWrap": "on"
+	},
+	"editor.codeActionsOnSave": {
+		"quickfix.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	},
+	"editor.formatOnSave": true,
+	"editor.quickSuggestions": {
+		"strings": true
+	},
+	"editor.rulers": [100],
+	"editor.wordWrap": "bounded",
+	"editor.wordWrapColumn": 100,
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"tsconfig.json": "biome.jsonc, *.config.ts",
+		"package.json": "pnpm-lock.yaml",
+		"README.md": "LICENSE"
+	},
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"html.format.enable": false,
+	"javascript.format.enable": false,
+	"javascript.preferences.importModuleSpecifier": "non-relative",
+	"json.format.enable": false,
+	"typescript.format.enable": false,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.tsdk": "./node_modules/typescript/lib"
+}

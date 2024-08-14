@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build
-        run: pnpm run build && cp package.json dist
+        run: pnpm run build
       - name: Publish
         run: pnpm publish dist --access public --no-git-checks
         env:
