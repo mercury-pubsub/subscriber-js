@@ -2,8 +2,8 @@
 
 ONLY_MINOR="@types/node"
 
-pnpm exec npm-check-updates -f "$ONLY_MINOR" -t minor -u
-pnpm exec npm-check-updates -x "$ONLY_MINOR" -u
+pnpm exec npm-check-updates --dep dev -f "$ONLY_MINOR" -t minor -u
+pnpm exec npm-check-updates --dep dev -x "$ONLY_MINOR" -u
 pnpm install
-pnpm update
+pnpm update --dev
 biome format --write package.json

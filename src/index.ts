@@ -32,6 +32,9 @@ export class Subscriber {
 	constructor(projectId: string, options: SubscriberOptions = {}) {
 		this.#projectId = projectId;
 		this.#getAccessToken = options.getAccessToken;
+
+		this.publish = this.publish.bind(this);
+		this.subscribe = this.subscribe.bind(this);
 	}
 
 	/**
