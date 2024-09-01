@@ -24,12 +24,17 @@ export type SubscriberOptions = {
  * @public
  */
 export class Subscriber {
-	static #baseUrl = process.env.BASE_URL;
-
+	#baseUrl: string;
 	#projectId: string;
 	#getAccessToken?: SubscriberOptions["getAccessToken"];
 
-	constructor(projectId: string, options: SubscriberOptions = {}) {
+	constructor(
+		region: "southeast-asia" | "eu-west" | "us-east" | "us-west",
+		projectId: string,
+		options: SubscriberOptions = {},
+	) {
+		// biome-ignore lint/style/noNonNullAssertion: guaranteed by @t3-oss/env-core
+		this.#baseUrl = process.env.BASE_URL!.replace("{{REGION}}", region);
 		this.#projectId = projectId;
 		this.#getAccessToken = options.getAccessToken;
 
@@ -49,7 +54,7 @@ export class Subscriber {
 		}
 		const accessToken = await this.#getAccessToken("sub", channelName);
 		const response = await fetch(
-			new URL(`${this.#projectId}/${encodeURIComponent(channelName)}`, Subscriber.#baseUrl),
+			new URL(`${this.#projectId}/${encodeURIComponent(channelName)}`, this.#baseUrl),
 			{
 				method: "POST",
 				body: JSON.stringify(body),
@@ -72,7 +77,7 @@ export class Subscriber {
 	): Promise<() => void> {
 		const accessToken = await this.#getAccessToken?.("sub", channelName);
 		const eventSource = new EventSource(
-			new URL(`${this.#projectId}/${encodeURIComponent(channelName)}`, Subscriber.#baseUrl).href,
+			new URL(`${this.#projectId}/${encodeURIComponent(channelName)}`, this.#baseUrl).href,
 			{
 				headers: {
 					"Content-Type": "application/json",

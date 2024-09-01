@@ -5,7 +5,7 @@ on:
     types: [published]
 
 env:
-  BASE_URL: https://na.mercury-pubsub.dev
+  BASE_URL: https://{{REGION}}.mercury-pubsub.dev
 
 jobs:
   publish:
